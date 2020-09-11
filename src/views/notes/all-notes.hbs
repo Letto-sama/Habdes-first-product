@@ -1,0 +1,29 @@
+<h1>Todos los produtos</h1>
+
+<div class="row">
+
+    {{#each notes}}
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h4>
+                        {{tittle}} <a href="/notes/edit/{{_id}}"><i class="fa fa-pencil"></i></a>
+                    </h4>
+                    <p>
+                        {{description}}
+                    </p>
+                    <h5>
+                        {{quantity}}
+                    </h5>
+                    <form action="/notes/delete/{{_id}}?_method=DELETE" method="POST"> <!--se enviara una consulta (?)-->
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="submit" class="btn-danger btn-block btn">
+                            Borrar
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    {{/each}}
+
+</div>
